@@ -20,7 +20,7 @@ def ET_scraper():
 				continue
 			try:
 				Headline.objects.get(text=content)
-			except self.model.does:
+			except:
 				HeadlineEntry = Headline()
 				HeadlineEntry.publish(content)
 

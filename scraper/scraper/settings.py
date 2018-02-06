@@ -27,7 +27,7 @@ SECRET_KEY = 'j45cgzbjlar=e5*z=u#z9k8lj%-sl20_4wea_mnpt@0_!#=0p-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -80,9 +80,13 @@ WSGI_APPLICATION = 'scraper.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': 'mydatabase',
     }
 }
+
+
+#db_from_env = dj_database_url.config(conn_max_age=500)
+#DATABASES['default'].update(db_from_env)
 
 
 # Password validation
@@ -127,7 +131,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 CELERY_BEAT_SCHEDULE = {
     'scrape_task': {
     'task': 'news_scraper.tasks.scrape_task',
-    'schedule': crontab(minute='*/15')
+    'schedule': crontab(minute='*/15', hour='4-12')
     },
     'index_task': {
     'task': 'news_scraper.tasks.index_scrape_task',
