@@ -131,7 +131,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 CELERY_BEAT_SCHEDULE = {
     'scrape_task': {
     'task': 'news_scraper.tasks.scrape_task',
-    'schedule': crontab(minute='*/15', hour='4-12')
+    'schedule': crontab(minute='*/15')
     },
     'index_task': {
     'task': 'news_scraper.tasks.index_scrape_task',
