@@ -1,6 +1,6 @@
 # Django-Scraper
 
-A django server running celery to scraper market headlines from the Economic Times, the Business Herald, and the Finanical Express. The server scrapes every 15 minutes and stores the headlines in the sqlite database. 
+A django server running celery to scrape market headlines from the Economic Times, the Business Herald, and the Finanical Express. The server scrapes every 15 minutes and stores the headlines in the sqlite database. 
 
 # Setup
 
@@ -24,7 +24,7 @@ Then, while in the scraper folder, run:
 
     celery -A scraper worker -l info
 
-NOTE: On Windows, running celery like this rasies ValueErrors whenever a task is called. If on windows, as a workaround you can run:
+NOTE: On Windows, running celery like this raises ValueErrors whenever a task is called. If on windows, as a workaround you can run:
 
     celery -A scraper worker --pool=solo -l info
 
@@ -36,4 +36,4 @@ This is enough for the scraper to run in the background, and update the database
 
     python manage.py runserver
 
-Then head over to http://localhost:8000/admin/ (or wherevre your server is running) and login with the superuser you've created.
+Then head over to http://localhost:8000/admin/ (or your server's address) and login with the superuser you've created.
